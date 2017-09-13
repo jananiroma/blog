@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('articles', function() {
+Route::group(['prefix' => 'articles'], function() {
 
+	Route::get('view/{id}', [
+		'uses'	=>	'TestController@view',
+		'as'	=>	'articlesView'
+	]);
 });
